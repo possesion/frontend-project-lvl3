@@ -1,8 +1,9 @@
 {
   "name": "my-webpack-project",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "description": "My webpack project",
+  "browserslist": "> 0.25%, not dead",
   "main": "./src/index.js",
   "scripts": {
     "test": "jest",
@@ -28,11 +29,12 @@
   },
   "homepage": "https://github.com/possesion/frontend-project-lvl3#readme",
   "devDependencies": {
-    "@babel/core": "^7.17.8",
+    "@babel/core": "^7.17.9",
+    "@babel/eslint-parser": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@webpack-cli/generators": "^2.4.2",
     "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.4",
+    "babel-loader": "^8.2.5",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^6.7.1",
     "eslint": "^8.13.0",
@@ -40,6 +42,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.1.4",
     "eslint-plugin-prettier": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.5.1",
