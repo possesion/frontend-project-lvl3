@@ -10,10 +10,7 @@ class View {
   };
 
   userSchema = object({
-    rss: string()
-      .url(i18next.t("errors.url"))
-      .nullable()
-      .notOneOf(this.state.feeds, i18next.t("errors.duplicate")),
+    rss: string().url().nullable().notOneOf(this.state.feeds),
   });
 
   init() {
@@ -44,10 +41,7 @@ class View {
       }
       if (path === "feeds") {
         this.userSchema = object({
-          rss: string()
-            .url(i18next.t("errors.url"))
-            .nullable()
-            .notOneOf(this.state.feeds, i18next.t("errors.duplicate")),
+          rss: string().url().nullable().notOneOf(this.state.feeds),
         });
       }
       if (path === "error") {
