@@ -31,6 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/eslint-parser": "^7.17.0",
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@webpack-cli/generators": "^2.4.2",
     "babel-eslint": "^10.1.0",
@@ -54,6 +55,8 @@
     "workbox-webpack-plugin": "^6.5.3"
   },
   "dependencies": {
+    "@babel/runtime": "^7.17.9",
+    "i18next": "^21.6.16",
     "on-change": "^4.0.0",
     "yup": "^0.32.11"
   }

@@ -1,24 +1,34 @@
 import onChange from "on-change";
 import { object, string } from "yup";
+import i18next from "i18next";
 
 class View {
   state = {
-    feeds: [],
     rss: "",
     error: "",
+    feeds: [],
   };
 
   userSchema = object({
     rss: string()
-      .url("Ссылка должна быть валидным URL")
+      .url(i18next.t("errors.url"))
       .nullable()
-      .notOneOf(this.state.feeds, "RSS уже существует"),
+      .notOneOf(this.state.feeds, i18next.t("errors.duplicate")),
   });
 
   init() {
+    const title = document.querySelector("h1");
     const inputRSS = document.querySelector("#floatingInput");
+    const label = document.querySelector("label");
     const form = document.querySelector("form");
     const feedback = document.querySelector(".feedback");
+    const button = document.querySelector("[aria-label='add']");
+    const description = document.querySelector(".lead");
+
+    description.innerText = i18next.t("description");
+    title.innerText = i18next.t("title");
+    label.innerText = i18next.t("form.label");
+    button.innerText = i18next.t("form.submit");
 
     /**
      * browse allows for listing all the keys of a namespace
@@ -35,9 +45,9 @@ class View {
       if (path === "feeds") {
         this.userSchema = object({
           rss: string()
-            .url("Ссылка должна быть валидным URL")
+            .url(i18next.t("errors.url"))
             .nullable()
-            .notOneOf(this.state.feeds, "RSS уже существует"),
+            .notOneOf(this.state.feeds, i18next.t("errors.duplicate")),
         });
       }
       if (path === "error") {
