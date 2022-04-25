@@ -35,27 +35,27 @@ class View {
      * @returns {number}
      */
 
-    const watchedObject = onChange(this.state, (path, value) => {
-      if (path === "rss") {
-        inputRSS.value = this.state.rss;
-      }
-      if (path === "feeds") {
-        this.userSchema = object({
-          rss: string().url().nullable().notOneOf(this.state.feeds),
-        });
-      }
-      if (path === "error") {
-        if (value) {
-          feedback.innerText = this.state.error;
-          inputRSS.classList.add("is-invalid");
-        } else {
-          inputRSS.classList.remove("is-invalid");
-        }
-      }
-    });
-    inputRSS.addEventListener("change", ({ target }) => {
-      watchedObject.rss = target.value;
-    });
+    // const watchedObject = onChange(this.state, (path, value) => {
+    //   if (path === "rss") {
+    //     inputRSS.value = this.state.rss;
+    //   }
+    //   if (path === "feeds") {
+    //     this.userSchema = object({
+    //       rss: string().url().nullable().notOneOf(this.state.feeds),
+    //     });
+    //   }
+    //   if (path === "error") {
+    //     if (value) {
+    //       feedback.innerText = this.state.error;
+    //       inputRSS.classList.add("is-invalid");
+    //     } else {
+    //       inputRSS.classList.remove("is-invalid");
+    //     }
+    //   }
+    // });
+    // inputRSS.addEventListener("change", ({ target }) => {
+    //   watchedObject.rss = target.value;
+    // });
 
     form.addEventListener("submit", (e) => {
       const post = document.createElement("div");
@@ -72,13 +72,13 @@ class View {
               new window.DOMParser().parseFromString(str, "text/xml")
             )
             .then(() => {
-              watchedObject.feeds.push(payload);
-              watchedObject.error = "";
-              watchedObject.rss = "";
+              // watchedObject.feeds.push(payload);
+              // watchedObject.error = "";
+              // watchedObject.rss = "";
             });
         })
         .catch((err) => {
-          watchedObject.error = err.message;
+          // watchedObject.error = err.message;
         });
     });
   }

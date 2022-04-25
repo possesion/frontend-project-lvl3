@@ -10,8 +10,6 @@
     ]
   ],
   "plugins": [
-    [
-      "@babel/transform-runtime"
-    ]
+    "@babel/transform-runtime"
   ]
 }
